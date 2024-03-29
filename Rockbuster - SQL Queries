@@ -1,0 +1,99 @@
+#Summarizing & Cleaning Data in SQL. 
+
+##Query:
+SELECT film_id,    
+title,
+description,
+release_year,
+language_id,
+rental_duration,
+rental_rate,
+length,
+replacement_cost,
+rating,
+last_update,
+special_features,
+fulltext
+FROM film
+GROUP BY film_id,
+title,
+description,
+release_year,
+language_id,
+rental_duration,
+rental_rate,
+length,
+replacement_cost,
+rating,
+last_update,
+special_features,
+fulltext
+HAVING COUNT (*)>1
+
+
+#Summarizing data for both the film table and the customer table. 
+
+##Query:
+FILM numerical
+SELECT
+MIN (release_year) AS min_release_year,
+MAX (release_year) AS max_release_year,
+AVG (release_year) AS avg_release_year,
+COUNT (release_year) AS count_release_year,
+COUNT (*) AS count_rows
+FROM film
+
+SELECT
+MIN (rental_duration) AS min_rental_duration,
+MAX (rental_duration) AS max_rental_durationr,
+AVG (rental_duration) AS avg_rental_duration,
+COUNT ( rental_duration) AS count_rental_duration,
+COUNT (*) AS count_rows
+FROM film
+
+SELECT
+MIN (rental_rate) AS rental_rate,
+MAX (rental_rate) AS rental_rate,
+AVG (rental_rate) AS rental_rate,
+COUNT (rental_rate) AS count_rental_rate,
+COUNT (*) AS count_rows
+FROM film
+
+SELECT
+MIN (length) AS min_length,
+MAX (length) AS max_length,
+AVG (length) AS avg_length,
+COUNT (length) AS count_length,
+COUNT (*) AS count_rows
+FROM film
+
+SELECT
+MIN (replacement_cost) AS min_replacement_cost,
+MAX (replacement_cost) AS max_replacement_cost,
+AVG (replacement_cost) AS avg_replacement_cost,
+COUNT (replacement_cost) AS count_replacement_cost,
+COUNT (*) AS count_rows
+FROM film
+
+FILM nonnumerical
+SELECT MODE() WITHIN GROUP (ORDER BY film_id) AS modal_film_id,
+MODE() WITHIN GROUP (ORDER BY title) AS modal_title,
+MODE () WITHIN GROUP (ORDER BY description) AS modal_description,
+MODE() WITHIN GROUP (ORDER BY language_id) AS modal_language_id,
+MODE () WITHIN GROUP (ORDER BY rating) AS modal_rating,
+MODE () WITHIN GROUP (ORDER BY last_update) AS modal_last_update,
+MODE () WITHIN GROUP (ORDER BY special_features) AS modal_special_features,
+MODE () WITHIN GROUP (ORDER BY fulltext) AS modal_fulltext
+FROM film
+
+CUSTOMER nonnumerical
+SELECT MODE() WITHIN GROUP (ORDER BY customer_id) AS modal_customer_id,
+MODE() WITHIN GROUP (ORDER BY store_id) AS modal_store_id,
+MODE () WITHIN GROUP (ORDER BY first_name) AS modal_first_name,
+MODE() WITHIN GROUP (ORDER BY email) AS modal_email,
+MODE () WITHIN GROUP (ORDER BY address_id) AS modal_address_id,
+MODE () WITHIN GROUP (ORDER BY activebool) AS modal_activebool,
+MODE () WITHIN GROUP (ORDER BY create_date) AS modal_create_date,
+MODE () WITHIN GROUP (ORDER BY last_update) AS modal_last_update,
+MODE () WITHIN GROUP (ORDER BY active) AS modal_active
+FROM customer
