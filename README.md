@@ -37,7 +37,10 @@ submitted a deliverable that directly contributed to the final project—in
 this case, an analysis that answers business questions put forward by the 
 management team.
 
+## Retrospective:
 
+• I found this project very interesting, and I enjoyed answering those questions. I learned some new and fun facts.
 
+• It was a little challenging for me since this was the first time I worked on a project like this and used the required programming tools. It helped me extend my knowledge and get more comfortable working in this field.
 
 [Tableau link](https://public.tableau.com/authoring/Rockbuster-Task3_10/Customersaroundworld#1)
